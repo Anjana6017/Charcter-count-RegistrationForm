@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      .container {
+        background-color: antiquewhite;
+        color: blueviolet;
+        padding: 10px;
+        margin: 15px auto;
+        height: 500px;
+        width: 500px;
+        display: block;
+      }
+      h1 {
+        text-align: center;
+      }
+      input {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+        width: 250px;
+        box-sizing: border-box;
+        border: 2px solid salmon;
+      }
+
+      label {
+        display: inline-block;
+        width: 100px;
+        font-weight: bold;
+      }
+      button {
+        padding: 10px;
+        background-color: blueviolet;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: auto;
+        margin-top: 10px;
+      }
+      @media screen and (max-width: 600px) {
+        .container {
+          width: 90%;
+          padding: 15px;
+        }
+
+        input,
+        textarea {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registration Form</h1>
+
+      <label for="name">Name</label>
+      <input type="text" id="name" /><br />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" /><br />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" /><br />
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" /><br />
+
+      <button id="register">Register</button>
+
+      <p id="message"></p>
+    </div>
+
+    <script>
+      let name = document.getElementById("name");
+      let email = document.getElementById("email");
+      let password = document.getElementById("password");
+      let confirmPassword = document.getElementById("confirmPassword");
+      let register = document.getElementById("register");
+      let message = document.getElementById("message");
+
+      register.addEventListener("click", function () {
+        let namevalue = name.value.trim();
+        let emailvalue = email.value.trim();
+        let passwordvalue = password.value.trim();
+        let confirmPasswordvalue = confirmPassword.value.trim();
+        if (
+          namevalue == "" ||
+          emailvalue == "" ||
+          passwordvalue == "" ||
+          confirmPasswordvalue == ""
+        ) {
+          message.textContent = "fill all the fields";
+          message.style.color = "red";
+        } else if (!email.checkValidity()) {
+          message.textContent = "fill all the fields";
+          message.style.color = "red";
+        } else if (passwordvalue != confirmPasswordvalue) {
+          message.textContent = "fill all the fields";
+          message.style.color = "red";
+        } else if (passwordvalue.length < 8) {
+          message.textContent = "Password must contain at least 8 characters";
+          message.style.color = "red";
+        } else {
+          alert("registration sucessfull");
+        }
+      });
+    </script>
+    <a href="character.html"> <button>Next Page</button></a>
+  </body>
+</html>

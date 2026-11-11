@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>character count</title>
+    <style>
+      .container {
+        text-align: center;
+        background-color: thistle;
+        padding: auto;
+        width: 400px;
+        margin: 20px auto;
+        border-radius: 5px;
+      }
+      textarea {
+        width: 300px;
+        height: 150px;
+        padding: 10px;
+        border-radius: 10px;
+        resize: none;
+      }
+      p {
+        margin: 5px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px;
+        background-color: violet;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: auto;
+        margin-top: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      @media screen and (max-width: 600px) {
+        .container {
+          width: 90%;
+          padding: 15px;
+        }
+
+        input,
+        textarea {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Character Count</h1>
+      <textarea
+        name=""
+        id="message"
+        placeholder="Enter your message"
+      ></textarea>
+      <p id="count">character:0</p>
+      <p id="Remaining">Remaining:200</p>
+      <a href="index.html"> <button>Back</button></a>
+      <script>
+        let message = document.getElementById("message");
+        let count = document.getElementById("count");
+        let Remaining = document.getElementById("Remaining");
+        message.addEventListener("input", function () {
+          let length = message.value.length;
+          count.textContent = "characters:" + length;
+          Remaining.textContent = "Remaining:" + (200 - length);
+        });
+      </script>
+    </div>
+  </body>
+</html>
